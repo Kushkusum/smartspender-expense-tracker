@@ -78,6 +78,7 @@ This project was developed using **Cursor AI**, which helped generate the HTML, 
 ### Example Prompts Used with Cursor
 
 1. **HTML Generation**
+
 Create a fully functional Expense Tracker HTML page with:
 
 Add expense form (amount, category, date, description, recurring checkbox)
