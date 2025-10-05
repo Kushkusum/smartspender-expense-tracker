@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Expense Tracker</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<div class="container">
+  <h1>Expense Tracker</h1>
+
+  <!-- Theme & Currency -->
+  <div class="flex mb-4">
+    <button id="theme-toggle" class="bg-gray-300">Toggle Theme</button>
+    <select id="currency-selector" class="flex-1">
+      <option value="INR">INR</option>
+      <option value="USD">USD</option>
+      <option value="EUR">EUR</option>
+      <option value="GBP">GBP</option>
+    </select>
+  </div>
+
+  <!-- Add Expense -->
+  <form id="expense-form" class="flex mb-4">
+    <input type="number" id="amount" placeholder="Amount" required>
+    <select id="category">
+      <option>Food</option>
+      <option>Transport</option>
+      <option>Entertainment</option>
+      <option>Bills</option>
+      <option>Shopping</option>
+      <option>Other</option>
+    </select>
+    <input type="date" id="date" required>
+    <input type="text" id="description" placeholder="Description">
+    <button type="submit" class="bg-blue-500">Add</button>
+  </form>
+
+  <!-- Filters -->
+  <div class="flex mb-4">
+    <select id="filter-category">
+      <option value="">All Categories</option>
+      <option>Food</option>
+      <option>Transport</option>
+      <option>Entertainment</option>
+      <option>Bills</option>
+      <option>Shopping</option>
+      <option>Other</option>
+    </select>
+    <input type="date" id="filter-from">
+    <input type="date" id="filter-to">
+    <input type="text" id="search" placeholder="Search">
+    <button id="clear-filters" class="bg-gray-300">Clear</button>
+  </div>
+
+  <!-- Budget Progress -->
+  <label>Monthly Budget Progress</label>
+  <div class="budget-bar"><div id="budget-progress"></div></div>
+
+  <!-- Expense Table -->
+  <table id="expense-table">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Category</th>
+        <th>Description</th>
+        <th>Amount</th>
+        <th>Recurring</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <!-- Stats -->
+  <div class="mb-4">
+    <p id="total-spent">Total: 0</p>
+    <p id="transaction-count">Transactions: 0</p>
+    <canvas id="category-chart" height="150"></canvas>
+    <canvas id="trend-chart" height="150" class="mt-2"></canvas>
+  </div>
+
+  <!-- Export -->
+  <button id="export-csv" class="bg-green-500 mb-4">Export CSV</button>
+</div>
+
+<script src="index.js"></script>
+</body>
+</html>
