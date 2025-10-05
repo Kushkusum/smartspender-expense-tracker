@@ -167,9 +167,9 @@ LocalStorage persistence
 
 ## ⏱️ Time Spent
 
-- **Total Time:** ~6–7 hours  
-- Planning & Cursor prompts: 1.5 hours  
-- Reviewing & modifying AI-generated code: 2 hours  
-- Styling, charts, and responsive tweaks: 2 hours  
-- Testing & polishing features: 1.5 hours  
+- **Total Time:** ~2–3 hours  
+  - Planning & Cursor prompts: ~0.5 hour  
+  - Reviewing & modifying AI-generated code: ~0.5–1 hour  
+  - Styling, charts, and responsive tweaks: ~0.5–1 hour  
+  - Testing & polishing features: ~0.5 hour
 
