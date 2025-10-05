@@ -1,78 +1,289 @@
-/* Reset & base */
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f3f4f6;
-    color: #111827;
-    transition: background 0.3s, color 0.3s;
-}
-
-/* Container */
-.container {
-    max-width: 900px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 0.5rem;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-}
-
-/* Headings */
-h1, h2 { margin-bottom: 1rem; }
-
-/* Inputs & Selects */
-input, select {
-    padding: 0.5rem;
+/* ==============================
+   RESET & BASE STYLES
+=================================*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(180deg, #f9fafb 0%, #f1f5f9 100%);
+    color: #1e293b;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 2rem;
+    transition: background 0.4s, color 0.4s;
+  }
+  
+  /* ==============================
+     CONTAINER
+  =================================*/
+  .container {
+    width: 100%;
+    max-width: 950px;
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+    transition: background 0.3s, box-shadow 0.3s;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #334155;
+    text-align: center;
+    letter-spacing: -0.5px;
+  }
+  
+  /* ==============================
+     INPUTS, SELECTS & BUTTONS
+  =================================*/
+  input, select {
+    padding: 0.65rem 0.8rem;
     border: 1px solid #d1d5db;
-    border-radius: 0.25rem;
+    border-radius: 0.5rem;
+    background: #f9fafb;
+    color: #1e293b;
     flex: 1;
-    transition: border 0.2s;
-}
-input:focus, select:focus { border-color: #3b82f6; outline: none; }
-
-/* Buttons */
-button {
+    font-size: 0.95rem;
+    transition: border 0.2s, background 0.3s;
+  }
+  
+  input:focus, select:focus {
+    border-color: #60a5fa;
+    background: #fff;
+    outline: none;
+  }
+  
+  /* Buttons */
+  button {
     cursor: pointer;
-    padding: 0.4rem 0.8rem;
-    border-radius: 0.25rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 0.5rem;
     border: none;
-    transition: transform 0.2s;
-}
-button:hover { transform: scale(1.05); }
-.bg-blue-500 { background-color: #3b82f6; color: #fff; }
-.bg-red-500 { background-color: #ef4444; color: #fff; }
-.bg-green-500 { background-color: #22c55e; color: #fff; }
-.bg-yellow-400 { background-color: #facc15; color: #111827; }
-.bg-gray-300 { background-color: #d1d5db; color: #111827; }
+    font-weight: 500;
+    transition: transform 0.15s, background 0.3s, box-shadow 0.3s;
+  }
+  
+  button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  }
+  
+  /* Pastel Button Colors */
+  .bg-blue-500 { background-color: #a5d8ff; color: #1e293b; }
+  .bg-green-500 { background-color: #b2f2bb; color: #1e293b; }
+  .bg-yellow-400 { background-color: #ffe066; color: #1e293b; }
+  .bg-red-500 { background-color: #ffa8a8; color: #1e293b; }
+  .bg-gray-300 { background-color: #dee2e6; color: #1e293b; }
+  
+  /* ==============================
+     FLEX UTILITIES & MARGINS
+  =================================*/
+  .flex { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+  .flex-1 { flex: 1; }
+  .mb-2 { margin-bottom: 0.5rem; }
+  .mb-4 { margin-bottom: 1rem; }
+  .mb-6 { margin-bottom: 1.5rem; }
+  
+  /* ==============================
+     TABLE
+  =================================*/
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    background: #f8fafc;
+  }
+  
+  th, td {
+    padding: 0.75rem;
+    text-align: left;
+    font-size: 0.95rem;
+  }
+  
+  th {
+    background-color: #e2e8f0;
+    color: #334155;
+    font-weight: 600;
+  }
+  
+  td {
+    border-top: 1px solid #e5e7eb;
+  }
+  
+  tr:hover {
+    background-color: #f1f5f9;
+  }
+  
+  /* ==============================
+     BUDGET BAR
+  =================================*/
+  .budget-bar {
+    width: 100%;
+    height: 14px;
+    background-color: #e2e8f0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 1rem 0;
+  }
+  
+  #budget-progress {
+    height: 100%;
+    width: 0%;
+    border-radius: 10px;
+    transition: width 0.4s ease, background-color 0.4s ease;
+  }
+  
+  /* ==============================
+     STATS SECTION
+  =================================*/
+  #total-spent, #transaction-count {
+    font-weight: 500;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+  }
+  
+  canvas {
+    background: #ffffff;
+    border-radius: 0.75rem;
+    padding: 0.5rem;
+    margin-top: 0.75rem;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+  }
+  
+  /* ==============================
+     DARK MODE
+  =================================*/
+  .dark-mode {
+    background: #1e293b;
+    color: #f1f5f9;
+  }
+  
+  .dark-mode .container {
+    background: #334155;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  .dark-mode input, .dark-mode select {
+    background: #475569;
+    border: 1px solid #64748b;
+    color: #f1f5f9;
+  }
+  
+  .dark-mode table {
+    background: #475569;
+  }
+  
+  .dark-mode th {
+    background: #64748b;
+    color: #f8fafc;
+  }
+  
+  .dark-mode td {
+    border-color: #64748b;
+  }
+  
+  /* ==============================
+     RESPONSIVE DESIGN
+  =================================*/
+  @media (max-width: 768px) {
+    body {
+      padding: 1rem;
+    }
+    .container {
+      padding: 1.2rem;
+    }
+    .flex {
+      flex-direction: column;
+    }
+    table {
+      font-size: 0.85rem;
+    }
+  }
 
-/* Flex helpers */
-.flex { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-.flex-1 { flex: 1; }
+  /* ==============================
+   CHARTS LAYOUT (Side by Side)
+=================================*/
+.charts-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .chart-box {
+    flex: 1 1 45%;
+    background: #ffffff;
+    border-radius: 0.75rem;
+    padding: 0.75rem;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+    height: 260px;
+    min-width: 280px;
+  }
+  
+  .chart-box canvas {
+    width: 100% !important;
+    height: 100% !important;
+  }
+  
+  .dark-mode .chart-box {
+    background: #475569;
+  }
+  
+  /* Stack charts vertically on small screens */
+  @media (max-width: 768px) {
+    .chart-box {
+      flex: 1 1 100%;
+      height: 240px;
+    }
+  }
 
-/* Margin helpers */
-.mb-2 { margin-bottom: 0.5rem; }
-.mb-4 { margin-bottom: 1rem; }
-.mb-6 { margin-bottom: 1.5rem; }
-
-/* Table */
-table { width: 100%; border-collapse: collapse; margin-bottom: 1rem; }
-th, td { padding: 8px; text-align: left; border-bottom: 1px solid #e5e7eb; }
-th { background-color: #f3f4f6; }
-
-/* Budget progress */
-.budget-bar { width: 100%; height: 12px; background-color: #e5e7eb; border-radius: 6px; overflow: hidden; margin-bottom: 1rem; }
-#budget-progress { height: 100%; width: 0%; transition: width 0.3s; border-radius: 6px; }
-
-/* Dark mode */
-.dark-mode {
-    background-color: #1f2937;
-    color: #f9fafb;
-}
-.dark-mode .container { background-color: #374151; color: #f9fafb; }
-.dark-mode input, .dark-mode select { background-color: #4b5563; color: #f9fafb; border: 1px solid #6b7280; }
-.dark-mode table th, .dark-mode table td { border-bottom: 1px solid #6b7280; }
-
-/* Responsive */
-@media(max-width:768px) {
-    .flex { flex-direction: column; }
-}
+  /* ==============================
+   RECURRING CHECKBOX STYLES
+=================================*/
+.recurring-label {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.9rem;
+    color: #334155;
+    background: #f8fafc;
+    padding: 0.4rem 0.6rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e2e8f0;
+    cursor: pointer;
+    transition: background 0.2s, border 0.2s;
+    margin-right: 0.5rem;
+  }
+  
+  .recurring-label:hover {
+    background: #e2e8f0;
+  }
+  
+  .dark-mode .recurring-label {
+    background: #475569;
+    color: #f1f5f9;
+    border-color: #64748b;
+  }
+  .recurring-tag {
+    background: #b2f2bb;
+    color: #0f5132;
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.4rem;
+    font-weight: 600;
+    font-size: 0.85rem;
+  }
+  
+  .dark-mode .recurring-tag {
+    background: #2e7d32;
+    color: #e8f5e9;
+  }
+    
